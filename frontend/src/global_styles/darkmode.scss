@@ -1,0 +1,1050 @@
+@import '../global_styles/main.scss';
+/* DARK MODE CSS SETTINGS */
+
+/* -----------  INDEX  ------------- */
+/* 1. GLOBALS & VARIABLES*/
+/* 2. NAVBAR */
+/* 3. SIDEBAR */
+/* 4. WIDGETS */
+/* 5. FEATURED */
+/* 6. CHART */
+/* 7. TABLE */
+/* 8. DATATABLE */
+/* 9. ADD JOB PAGE, ADD RECORDER/MODERATOR PAGE, EDIT JOB PAGE, EDIT RECORDER/MODERATOR (ADMIN) PAGE, EDIT PROFILE PAGE */
+/* 10. VIEW ADMIN (RECORDER/MODERATOR) PAGE*/
+/* 11. LOGIN PAGE */
+/* 12. VIEW RECORDER/MODERATOR (ADMIN) PAGE & PROFILE PAGE */
+/* 13. MOBILE SIDEBAR */
+/* 14. SEARCH JOBS PAGE */
+/* 15. HOME */
+/* 16. MODAL */
+/* 17. SETTINGS */
+/* 18. LOGS */
+/* 19. VIEW SINGLE JOB PAGE */
+/* 20. JOB EDIT MODE */
+/* 21. SEARCH LOGS */
+/* --------------------------------- */
+
+/* 1. GLOBALS & VARIABLES*/
+$dark-bg-color: #1f2128;
+$dark-card-color: #242731;
+$dark-text-color: #e7eef8;
+$dark-text-gray-color: #d1d5db;
+$dark-seconday-gray: #6b7280;
+.app {
+  &.dark {
+    background-color: $dark-bg-color !important;
+
+    .css-levciy-MuiTablePagination-displayedRows {
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      color: $dark-text-gray-color;
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.app {
+  &.dark {
+    // SCROLLBAR
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: $dark-bg-color;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #111;
+      border-radius: 10px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #000;
+    }
+
+    /* 2. NAVBAR */
+    .navbar {
+      background-color: $dark-card-color;
+      border-bottom: 2px solid $dark-bg-color;
+      .wrapper {
+        .welcome {
+          .welcome-text,
+          .welcome-text-mobile {
+            color: $dark-text-gray-color;
+          }
+          .sidebar-icon-container {
+            background-color: $dark-bg-color;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            cursor: pointer;
+            .sidebar-icon {
+              color: $dark-text-gray-color;
+            }
+            &:hover {
+              background-color: $light-bg-light-color;
+              box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                0 1px 2px -1px rgb(0 0 0 / 0.1);
+              .sidebar-icon {
+                color: $light-secondarydark-color;
+              }
+            }
+          }
+        }
+
+        .items {
+          .item.user {
+            .user-name {
+              color: $dark-text-color;
+            }
+            .user-icon {
+              color: $dark-text-color;
+            }
+          }
+
+          .navbar-icon-container {
+            background-color: $dark-bg-color;
+            .navbar-icon {
+              font-size: 30px;
+              color: $dark-text-gray-color;
+            }
+            &:hover {
+              background-color: $light-bg-light-color;
+              box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+              .navbar-icon {
+                color: $light-secondarydark-color;
+              }
+            }
+          }
+        }
+      }
+    }
+    /* 3. SIDEBAR */
+    .sidebar {
+      background-color: $dark-card-color;
+      hr {
+        border: 0.5px solid $dark-bg-color;
+      }
+      .sidebar-center {
+        ul {
+          .title {
+            color: $dark-seconday-gray;
+          }
+          a,
+          button {
+            .sidebar-list-icon {
+              color: $dark-text-gray-color;
+            }
+            span {
+              color: $dark-text-gray-color;
+            }
+            &.active {
+              background-color: $light-bg-light-color;
+              .sidebar-list-icon {
+                color: $light-secondarydark-color;
+              }
+              span {
+                color: $light-secondarydark-color;
+              }
+            }
+            &:hover {
+              background-color: $dark-bg-color;
+              .sidebar-list-icon {
+                color: $dark-text-gray-color;
+              }
+              span {
+                color: $dark-text-gray-color;
+              }
+              &.active {
+                background-color: $light-bg-light-color;
+                .sidebar-list-icon {
+                  color: $light-secondarydark-color;
+                }
+                span {
+                  color: $light-secondarydark-color;
+                }
+              }
+            }
+          }
+        }
+      }
+      .sidebar-bottom {
+        .color-mode-title {
+          color: $dark-seconday-gray;
+        }
+        .color-mode {
+          .color-option {
+            &:nth-child(1) {
+              background-color: #ffffff;
+            }
+            &:nth-child(2) {
+              background-color: #111111;
+            }
+          }
+        }
+      }
+    }
+
+    /* 4. WIDGETS */
+    .widget {
+      background-color: $dark-card-color;
+      .title,
+      .counter {
+        color: $dark-text-color;
+      }
+
+      .link {
+        color: $dark-text-gray-color;
+        &:hover {
+          color: $light-secondarydark-color;
+          background-color: $light-bg-light-color;
+        }
+      }
+    }
+
+    /* 5. FEATURED */
+    .featured {
+      background-color: $dark-card-color;
+      .top {
+        color: $dark-text-color;
+        .icon {
+          color: $dark-text-color;
+          background-color: $dark-bg-color;
+          &:hover {
+            color: #14532d;
+            background-color: #dcfce7;
+          }
+        }
+      }
+
+      .bottom {
+        color: $dark-text-color;
+        .title {
+          color: $dark-text-color;
+        }
+        .desc {
+          color: $dark-text-gray-color;
+        }
+        .summary .item .item-title {
+          color: $dark-text-color;
+        }
+      }
+    }
+
+    /* 6. CHART */
+    .chart {
+      background-color: $dark-card-color;
+      .title {
+        color: $dark-text-color;
+      }
+      text {
+        fill: $dark-text-gray-color;
+      }
+      line {
+        stroke: $dark-seconday-gray;
+      }
+    }
+
+    /* 7. TABLE */
+    // HOME
+    .css-1ex1afd-MuiTableCell-root {
+      font-weight: 300;
+    }
+    .list-container {
+      .list {
+        padding: 20px;
+        background-color: $dark-card-color !important;
+      }
+      .list-title {
+        color: $dark-text-color !important;
+      }
+    }
+    .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+      background-color: $dark-card-color !important;
+    }
+    table {
+      background-color: $dark-bg-color !important;
+      color: $dark-text-color;
+
+      .table-cell {
+        color: #ffffff;
+        border-color: $dark-card-color;
+        &.buttons {
+          .telegram-icon {
+            color: $dark-text-color;
+            background-color: $dark-card-color;
+            &:hover {
+              color: #1d4ed8;
+              background-color: #bfdbfe;
+            }
+          }
+
+          .edit-icon {
+            color: $dark-text-color;
+            background-color: $dark-card-color;
+            &:hover {
+              color: #14532d;
+              background-color: #dcfce7;
+            }
+          }
+
+          .view-icon {
+            color: $dark-text-color;
+            background-color: $dark-card-color;
+            &:hover {
+              color: #14532d;
+              background-color: #dcfce7;
+            }
+          }
+        }
+      }
+    }
+
+    /* 8. DATATABLE */
+    .datatable {
+      background-color: $dark-bg-color;
+
+      .datatable-grid {
+        color: #ffffff;
+        font-weight: 200;
+        border: 1px solid $dark-bg-color;
+        font-size: 16px;
+
+        .name {
+          a {
+            color: $dark-text-gray-color;
+            text-decoration: none;
+            &:hover {
+              color: $dark-text-color;
+            }
+          }
+        }
+
+        .css-levciy-MuiTablePagination-displayedRows,
+        .MuiTablePagination-actions * {
+          color: $dark-text-gray-color;
+        }
+
+        .MuiDataGrid-columnHeaders,
+        .MuiDataGrid-cell {
+          border-bottom: 1px solid $dark-card-color;
+        }
+
+        .MuiDataGrid-footerContainer {
+          border-top: 1px solid $dark-card-color;
+        }
+
+        .MuiButtonBase-root {
+          color: $dark-text-gray-color;
+          background-color: $dark-card-color;
+          &:hover {
+            color: $light-secondarydark-color;
+            background-color: $light-bg-light-color;
+          }
+        }
+        .edit-icon {
+          color: $dark-text-color;
+          background-color: $dark-card-color;
+          &:hover {
+            color: $light-secondarydark-color;
+            background-color: $light-bg-light-color;
+          }
+        }
+        .view-icon {
+          color: $dark-text-color;
+          background-color: $dark-card-color;
+          &:hover {
+            color: $light-secondarydark-color;
+            background-color: $light-bg-light-color;
+          }
+        }
+      }
+    }
+
+    /* 9. ADD SUBSCRIBER PAGE, ADD RECORDER PAGE, EDIT JOB PAGE, EDIT RECORDER/MODERATOR (ADMIN) PAGE, EDIT PROFILE PAGE */
+    .add-job-container,
+    .add-admin-container,
+    .edit-job-container,
+    .edit-admin-container,
+    .edit-profile-container {
+      .bottom {
+        background-color: $dark-card-color;
+        form {
+          .form-group {
+            label {
+              color: $dark-text-gray-color;
+            }
+            input,
+            textarea,
+            select {
+              border: 1px solid $dark-bg-color;
+              color: $dark-text-color;
+              background-color: $dark-bg-color;
+
+              &::placeholder {
+                color: $dark-seconday-gray;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* 10.VIEW ADMIN (RECORDER/MODERATOR) PAGE*/
+    .single-admin {
+      .top {
+        .title-container {
+          .title {
+            h2 {
+              color: $dark-text-gray-color;
+            }
+          }
+        }
+      }
+      .below-top {
+        .card {
+          background-color: $dark-card-color;
+          .item {
+            .details {
+              .item-title {
+                color: $dark-text-gray-color;
+              }
+              .detail-item {
+                .item-key {
+                  color: $dark-seconday-gray;
+                }
+                .item-value {
+                  color: $dark-text-color;
+                }
+                .item-value.admin-status {
+                  text-transform: capitalize;
+                  padding: 5px 10px;
+                  border-radius: 10px;
+                  max-width: max-content;
+                  font-weight: 400;
+                  &.active {
+                    color: $light-secondarydark-color;
+                    background-color: $light-bg-light-color;
+                  }
+                  &.suspended {
+                    color: #b91c1c;
+                    background-color: #fda4af;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .right {
+          background-color: $dark-card-color;
+          .extra-info {
+            .item-key {
+              color: $dark-seconday-gray;
+            }
+            .item-value {
+              color: $dark-text-color;
+            }
+          }
+        }
+      }
+    }
+
+    /* 11. LOGIN PAGE */
+    .login-container {
+      background-color: $dark-bg-color;
+      .colormode-icon-container {
+        background-color: $dark-card-color;
+        .colormode-icon {
+          color: $dark-text-color;
+        }
+        &:hover {
+          background-color: $light-bg-light-color;
+          .colormode-icon {
+            color: $light-secondarydark-color;
+          }
+        }
+      }
+
+      .logo-title {
+        color: $dark-text-gray-color;
+      }
+
+      .logo-text {
+        color: $dark-text-gray-color;
+        font-weight: 400;
+      }
+
+      .forgot-password,
+      .need-help {
+        color: $dark-seconday-gray;
+        &:hover {
+          color: $dark-text-gray-color;
+        }
+      }
+      .login-form-container {
+        background-color: $dark-card-color;
+        .form-title {
+          color: $dark-text-gray-color;
+        }
+        form {
+          .form-group {
+            label {
+              color: $dark-text-gray-color;
+            }
+            input {
+              border: 1px solid $dark-bg-color;
+              color: $dark-text-color;
+              background-color: $dark-bg-color;
+            }
+          }
+        }
+      }
+    }
+
+    /* 12. VIEW RECORDER/MODERATOR (ADMIN) & PROFILE PAGE */
+    .single-admin,
+    .title-container {
+      color: $dark-seconday-gray;
+    }
+    .profile {
+      .below-top {
+        .card {
+          background-color: $dark-card-color;
+          .item {
+            .details {
+              .item-title {
+                color: $dark-text-gray-color;
+              }
+              .detail-item {
+                .item-key {
+                  color: $dark-seconday-gray;
+                }
+                .item-value {
+                  color: $dark-text-color;
+                }
+                .item-value.admin-status,
+                .item-value.status {
+                  &.active {
+                    color: $light-secondarydark-color;
+                    background-color: $light-bg-light-color;
+                  }
+                  &.suspended {
+                    color: #b91c1c;
+                    background-color: #fda4af;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* 13. MOBILE SIDEBAR */
+    .mobile-sidebar {
+      background-color: $dark-card-color;
+      &.enter {
+        width: 230px;
+      }
+      hr {
+        border: 0.5px solid $dark-bg-color;
+      }
+      .sidebar-center {
+        ul {
+          .title {
+            color: $dark-seconday-gray;
+          }
+          a,
+          button {
+            .sidebar-list-icon {
+              color: $dark-text-gray-color;
+            }
+            span {
+              color: $dark-text-gray-color;
+            }
+            &.active {
+              background-color: $light-bg-light-color;
+              .sidebar-list-icon {
+                color: $light-secondarydark-color;
+              }
+              span {
+                color: $light-secondarydark-color;
+              }
+            }
+            &:hover {
+              background-color: $dark-bg-color;
+              .sidebar-list-icon {
+                color: $dark-text-gray-color;
+              }
+              span {
+                color: $dark-text-gray-color;
+              }
+              &.active {
+                background-color: $light-bg-light-color;
+                .sidebar-list-icon {
+                  color: $light-secondarydark-color;
+                }
+                span {
+                  color: $light-secondarydark-color;
+                }
+              }
+            }
+          }
+        }
+      }
+      .sidebar-bottom {
+        .color-mode-title {
+          color: $dark-seconday-gray;
+        }
+        .color-mode {
+          .color-option {
+            &:nth-child(1) {
+              background-color: #ffffff;
+            }
+            &:nth-child(2) {
+              background-color: #111111;
+            }
+          }
+        }
+      }
+    }
+
+    .css-levciy-MuiTablePagination-displayedRows {
+      @include tablet {
+        font-size: 18px !important;
+        color: $dark-text-color !important;
+      }
+    }
+
+    /* 14. SEARCH JOBS PAGE */
+    .search-jobs-list-page-content {
+      .top {
+        .search {
+          border: 0.5px solid $dark-card-color;
+          background-color: $dark-card-color;
+          input {
+            color: $dark-text-color;
+            &::placeholder {
+              color: $dark-seconday-gray;
+            }
+          }
+          .navbar-search-icon {
+            color: $dark-text-gray-color;
+          }
+        }
+      }
+    }
+
+    .search-datatable {
+      .datatable-grid {
+        color: #ffffff;
+        font-weight: 200;
+        border: 1px solid $dark-bg-color;
+        font-size: 16px;
+
+        .name {
+          a {
+            color: $dark-text-gray-color;
+            text-decoration: none;
+            &:hover {
+              color: $dark-text-color;
+            }
+          }
+        }
+
+        .css-levciy-MuiTablePagination-displayedRows,
+        .MuiTablePagination-actions * {
+          color: $dark-text-gray-color;
+        }
+
+        .MuiDataGrid-columnHeaders,
+        .MuiDataGrid-cell {
+          border-bottom: 1px solid $dark-card-color;
+        }
+
+        .MuiDataGrid-footerContainer {
+          border-top: 1px solid $dark-card-color;
+        }
+
+        .MuiButtonBase-root {
+          color: $dark-text-gray-color;
+          background-color: $dark-card-color;
+          &:hover {
+            color: $light-secondarydark-color;
+            background-color: $light-bg-light-color;
+          }
+        }
+      }
+      .job-status-container {
+        &.completed {
+          color: $light-secondarydark-color;
+          background-color: $light-bg-light-color;
+        }
+        &.pending {
+          color: #a16207;
+          background-color: #fde047;
+        }
+        &.late {
+          color: #b91c1c;
+          background-color: #fda4af;
+        }
+      }
+      .edit-icon {
+        color: $dark-text-color;
+        background-color: $dark-card-color;
+        &:hover {
+          color: $light-secondarydark-color;
+          background-color: $light-bg-light-color;
+        }
+      }
+      .view-icon {
+        color: $dark-text-color;
+        background-color: $dark-card-color;
+        &:hover {
+          color: $light-secondarydark-color;
+          background-color: $light-bg-light-color;
+        }
+      }
+    }
+
+    /* 15. HOME */
+    .home-content {
+      .logotitle-container {
+        .logo-title {
+          color: $dark-text-gray-color;
+        }
+        .logo-text {
+          color: $dark-text-gray-color !important;
+        }
+      }
+    }
+
+    /* 16. MODAL */
+    .css-1vm1m0g {
+      background-color: $dark-bg-color;
+      border-color: $dark-bg-color;
+    }
+    .modal-title-container {
+      h2 {
+        color: $dark-text-gray-color;
+      }
+      &.suspend {
+        h2 {
+          color: #eab308;
+        }
+        .title-icon {
+          color: #eab308;
+          background-color: #fef08a;
+        }
+      }
+      &.delete {
+        h2 {
+          color: #b91c1c;
+        }
+        .title-icon {
+          color: #b91c1c;
+          background-color: #fda4af;
+        }
+      }
+      &.change-status-to-active {
+        h2 {
+          color: $light-secondarydark-color;
+        }
+        .title-icon {
+          color: $light-secondarydark-color;
+          background-color: $light-bg-light-color;
+        }
+      }
+    }
+    .modal-content {
+      .text {
+        color: $dark-text-color;
+      }
+    }
+    .btn-container {
+      .btn {
+        color: #fff;
+        background-color: $light-secondarylight-color;
+        border: 2px solid $light-secondarylight-color;
+
+        &:hover {
+          border: 2px solid $light-secondarydark-color;
+          background-color: $light-secondarydark-color;
+        }
+        &.delete-button {
+          background-color: #b91c1c;
+          border: 2px solid #b91c1c;
+          color: #fff;
+          &:hover {
+            background-color: #9a0a0a;
+            border: 2px solid #9a0a0a;
+          }
+        }
+        &.suspend-button {
+          background-color: #eab308;
+          border: 2px solid #eab308;
+          color: #fff;
+          &:hover {
+            background-color: #d69c00;
+            border: 2px solid #d69c00;
+          }
+        }
+      }
+    }
+
+    /* 17. SETTINGS */
+    .settings {
+      .top {
+        .title-container {
+          .mobile-back-btn {
+            color: #fff;
+            background-color: $light-secondarylight-color;
+            border: 2px solid $light-secondarylight-color;
+            &:hover {
+              border: 2px solid $light-secondarydark-color;
+              background-color: $light-secondarydark-color;
+            }
+          }
+        }
+        .btn-container {
+          .btn,
+          .back-btn {
+            color: #fff;
+            background-color: $light-secondarylight-color;
+            border: 2px solid $light-secondarylight-color;
+            &:hover {
+              border: 2px solid $light-secondarydark-color;
+              background-color: $light-secondarydark-color;
+            }
+          }
+        }
+      }
+      .below-top {
+        .card {
+          background-color: $dark-card-color;
+          .item {
+            .details {
+              .item-title {
+                color: $dark-text-gray-color;
+              }
+              .item-below-title {
+                color: $dark-text-gray-color;
+              }
+              .item-subtitle {
+                color: $dark-text-color;
+              }
+              form {
+                .checkbox-group {
+                  label {
+                    color: $dark-text-color;
+                  }
+                }
+              }
+            }
+          }
+
+          .form-btn-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding-top: 10px;
+
+            .btn {
+              padding: 8px 15px;
+              margin: 0px 5px;
+              border-radius: 5px;
+              font-size: 16px;
+              color: #fff;
+              font-family: inherit;
+              outline: none;
+              cursor: pointer;
+              box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+              background-color: $light-secondarylight-color;
+              border: 2px solid $light-secondarylight-color;
+              text-decoration: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              &:hover {
+                box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                  0 1px 2px -1px rgb(0 0 0 / 0.1);
+                border: 2px solid $light-secondarydark-color;
+                background-color: $light-secondarydark-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* 18. LOGS */
+    .logs-page-content {
+      .top {
+        .title-container {
+          color: $dark-seconday-gray;
+          .title-icon {
+            color: #374151;
+            background-color: #eef1f0;
+          }
+        }
+      }
+      .logs-container {
+        .log {
+          background-color: $dark-card-color;
+          .log-date {
+            color: $dark-text-gray-color;
+          }
+          .log-title {
+            color: #60a5fa;
+          }
+          .log-content {
+            color: $dark-text-color;
+          }
+        }
+      }
+    }
+
+    #root
+      > div
+      > div
+      > div.dashboard-container
+      > div.dashboard-content
+      > div
+      > div.pagination
+      > nav {
+      background-color: $light-bg-light-color;
+    }
+
+    /* 19. VIEW SINGLE JOB PAGE */
+    .single-job {
+      .top {
+        background-color: $dark-card-color;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        .title-container {
+          .title {
+            h2 {
+              color: $dark-text-gray-color;
+            }
+          }
+          .mobile-back-btn {
+            color: #fff;
+            background-color: $light-secondarylight-color;
+            border: 2px solid $light-secondarylight-color;
+          }
+        }
+      }
+      .below-top {
+        .card {
+          background-color: $dark-card-color;
+          .item {
+            .details {
+              .item-title {
+                color: $dark-text-gray-color;
+              }
+              .item-subtitle {
+                color: $dark-text-gray-color;
+              }
+              .detail-item {
+                .item-key {
+                  color: $dark-seconday-gray;
+                }
+                .item-value {
+                  color: $dark-text-color;
+                }
+
+                .item-value.status {
+                  &.completed {
+                    color: $light-secondarylight-color;
+                    background-color: $light-bg-light-color;
+                  }
+                  &.pending {
+                    color: #a16207;
+                    background-color: #fde047;
+                  }
+                  &.late {
+                    color: #d61c1c;
+                    background-color: #fda4af;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .logs-title-container {
+          color: $dark-text-gray-color;
+        }
+        .logs-container {
+          .log {
+            background-color: $dark-card-color;
+            .log-date {
+              color: $dark-text-gray-color;
+            }
+            .log-title {
+              color: #60a5fa;
+            }
+            .log-content {
+              color: $dark-text-color;
+            }
+          }
+        }
+      }
+    }
+
+    /* 20. JOB EDIT MODE */
+    input,
+    textarea,
+    select {
+      border: 1px solid $dark-card-color;
+      color: $dark-text-color;
+      background-color: $dark-bg-color;
+
+      &::placeholder {
+        color: $dark-seconday-gray;
+      }
+    }
+
+    /* 21. SEARCH LOGS */
+    .top {
+      .search {
+        border: 0.5px solid $dark-card-color;
+        background-color: $dark-card-color;
+        input {
+          color: $dark-text-color;
+          &::placeholder {
+            color: $dark-seconday-gray;
+          }
+        }
+        .navbar-search-icon {
+          color: $dark-text-gray-color;
+        }
+      }
+    }
+    .logs-title-container {
+      color: $dark-text-gray-color;
+    }
+    .logs-container {
+      .no-results {
+        color: $dark-text-gray-color;
+      }
+      .log {
+        background-color: $dark-card-color;
+        .log-date {
+          color: $dark-text-gray-color;
+        }
+        .log-title {
+          color: #60a5fa;
+        }
+        .log-content {
+          color: $dark-text-color;
+        }
+      }
+    }
+  }
+}

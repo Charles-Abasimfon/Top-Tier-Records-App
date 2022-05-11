@@ -1,0 +1,18 @@
+@import '../../global_styles//main.scss';
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    svg {
+      .MuiCircularProgress-circle,
+      .MuiCircularProgress-svg {
+        color: $light-secondarydark-color !important;
+      }
+    }
+  }
+}

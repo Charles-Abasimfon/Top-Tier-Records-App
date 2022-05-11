@@ -1,0 +1,69 @@
+@import '../../global_styles/main.scss';
+
+.search-jobs-list-page-content {
+  height: calc(100% - 50px);
+  padding-top: 10px;
+
+  .top {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    @include mobile {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .search {
+      border: 0.5px solid lightgray;
+      padding: 3px;
+      border-radius: 25px;
+      height: 45px;
+      width: 100%;
+      max-width: 600px;
+      padding-left: 20px;
+      padding-right: 10px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      position: relative;
+
+      &:hover {
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+          0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+        .navbar-search-icon {
+          color: $light-secondarydark-color;
+        }
+      }
+      input {
+        font-family: 'Outfit';
+        border: none;
+        outline: none;
+        background: transparent;
+        width: 100%;
+        max-width: 600px;
+        height: 40px;
+        padding-right: 40px;
+        font-size: 16px;
+        &::placeholder {
+          font-family: 'Outfit';
+        }
+      }
+
+      .navbar-search-icon {
+        font-size: 30px;
+        cursor: pointer;
+        color: #374151;
+        position: absolute;
+        right: 10px;
+        top: 8px;
+      }
+    }
+  }
+}

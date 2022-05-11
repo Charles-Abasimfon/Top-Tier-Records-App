@@ -1,0 +1,81 @@
+/* COLORS - LIGHT MODE */
+$light-bg-color: #f7f9f9;
+$light-card-color: #ffffff;
+$light-bg-light-color: #bfdbfe;
+$light-text-color: #374151;
+$light-text-title-color: #334155;
+$light-primary-color: #00a8ff;
+$light-secondarylight-color: #2563eb;
+$light-secondarydark-color: #1d4ed8;
+$light-input-bg-color: #f1f5f9;
+
+/*//////////// GLOBALS //////////////*/
+body {
+  font-weight: 400;
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: #f7f9f9;
+  .MuiCircularProgress-circle,
+  .MuiCircularProgress-svg {
+    color: white !important;
+  }
+}
+
+.app {
+  background-color: #f7f9f9;
+  height: 100%;
+  .MuiCircularProgress-circle,
+  .MuiCircularProgress-svg {
+    color: white !important;
+  }
+}
+
+* {
+  font-family: 'Outfit', sans-serif !important;
+  box-sizing: border-box;
+  margin: 0;
+  .MuiCircularProgress-circle,
+  .MuiCircularProgress-svg {
+    color: white !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eef1f0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* MIXINS - MEDIA QUERIES */
+@mixin tablet {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

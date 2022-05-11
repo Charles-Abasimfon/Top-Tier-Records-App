@@ -1,0 +1,77 @@
+@import '../../global_styles/main.scss';
+
+.recorders-list-page-content {
+  height: calc(100% - 50px);
+  padding-top: 10px;
+
+  .top {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    @include mobile {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      color: #374151;
+
+      h2 {
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding-left: 10px;
+        @include mobile {
+          font-size: 18px;
+        }
+      }
+
+      .title-icon {
+        width: 45px;
+        height: 45px;
+        padding: 8px;
+        border-radius: 50%;
+        color: #374151;
+        background-color: #eef1f0;
+        @include mobile {
+          width: 35px;
+          height: 35px;
+          padding: 5px;
+        }
+      }
+    }
+
+    .btn {
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #fff;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      background-color: $light-secondarylight-color;
+      border: 2px solid $light-secondarylight-color;
+      text-decoration: none;
+      @include mobile {
+        font-size: 16px;
+        padding: 4px 10px;
+      }
+
+      &:hover {
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+          0 1px 2px -1px rgb(0 0 0 / 0.1);
+        border: 2px solid $light-secondarydark-color;
+        background-color: $light-secondarydark-color;
+      }
+    }
+  }
+}

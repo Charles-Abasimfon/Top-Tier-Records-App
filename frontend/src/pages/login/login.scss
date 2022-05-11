@@ -1,0 +1,182 @@
+@import '../../global_styles//main.scss';
+
+.login-container {
+  background-color: $light-bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-top: 50px;
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+
+  .MuiCircularProgress-root {
+    color: white;
+  }
+
+  .colormode-icon-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $light-card-color;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    cursor: pointer;
+    .colormode-icon {
+      font-size: 30px;
+      color: $light-secondarydark-color;
+      padding: 5px;
+    }
+    &:hover {
+      background-color: $light-bg-light-color;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      .colormode-icon {
+        color: $light-secondarydark-color;
+      }
+    }
+  }
+
+  .logo {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+
+  .logo-title {
+    font-size: 22px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .logo-text {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #111;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .forgot-password,
+  .need-help {
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #6b7280;
+    text-align: center;
+    &:hover {
+      color: #1f2128;
+    }
+  }
+
+  .login-form-container {
+    max-width: 500px;
+    background-color: $light-card-color;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border-radius: 10px;
+    padding: 30px;
+    @include mobile {
+      padding: 20px;
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 20px;
+      color: $light-text-title-color;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 22px;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .form-btn-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      .btn {
+        padding: 8px 15px;
+        margin: 0px 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: $light-card-color;
+        font-family: inherit;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        background-color: $light-secondarylight-color;
+        border: 2px solid $light-secondarylight-color;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+
+        &:hover {
+          box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+            0 1px 2px -1px rgb(0 0 0 / 0.1);
+          border: 2px solid $light-secondarydark-color;
+          background-color: $light-secondarydark-color;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #374151;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+        }
+
+        input {
+          width: 100%;
+          height: 50px;
+          border-radius: 5px;
+          border: 1px solid $light-input-bg-color;
+          padding: 0px 10px;
+          font-size: 18px;
+          font-weight: 400;
+          color: #374151;
+          outline: none;
+          cursor: auto;
+          box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+          background-color: #f9fafb;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

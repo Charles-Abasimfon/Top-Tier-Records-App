@@ -1,0 +1,125 @@
+@import '../../global_styles//main.scss';
+
+.MuiModal-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: none;
+}
+
+.css-1vm1m0g {
+  width: 500px !important;
+  max-width: 100vw !important;
+}
+
+.modal-title-container {
+  display: flex;
+  align-items: center;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #1f2937;
+  }
+
+  .title-icon {
+    width: 45px;
+    height: 45px;
+    padding: 8px;
+    border-radius: 50%;
+    color: #1f2937;
+    background-color: #eef1f0;
+    margin-right: 10px;
+  }
+
+  &.suspend {
+    h2 {
+      color: #eab308;
+    }
+    .title-icon {
+      color: #eab308;
+      background-color: #fef08a;
+    }
+  }
+
+  &.delete {
+    h2 {
+      color: #b91c1c;
+    }
+    .title-icon {
+      color: #b91c1c;
+      background-color: #fda4af;
+    }
+  }
+
+  &.change-status-to-active {
+    h2 {
+      color: $light-secondarydark-color;
+    }
+    .title-icon {
+      color: $light-secondarydark-color;
+      background-color: $light-bg-light-color;
+    }
+  }
+}
+
+.modal-content {
+  .text {
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.item-value {
+  display: inline-flex;
+  align-items: center;
+}
+.edit-icon {
+  font-size: 28px;
+  margin-left: 5px;
+  color: $light-secondarylight-color;
+  cursor: pointer;
+  background-color: $light-bg-light-color;
+  border-radius: 50%;
+  padding: 5px;
+
+  &:hover {
+    color: $light-secondarydark-color;
+    background-color: #93c5fd;
+  }
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #e5e7eb;
+  padding: 0px 10px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #374151;
+  outline: none;
+  cursor: auto;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  background-color: #f9fafb;
+  margin-bottom: 20px;
+}
+
+textarea {
+  height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

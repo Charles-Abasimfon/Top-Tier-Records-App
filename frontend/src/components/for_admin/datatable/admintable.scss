@@ -1,0 +1,88 @@
+@import '../../../global_styles/main.scss';
+.datatable {
+  height: 100%;
+
+  .datatable-grid {
+    font-family: inherit;
+    font-size: 16px;
+
+    .empty-overlay {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .empty-overlay-icon {
+        font-size: 100px;
+        color: #374151;
+      }
+    }
+  }
+
+  .css-levciy-MuiTablePagination-displayedRows {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  .name {
+    a {
+      color: #374151;
+      text-decoration: none;
+      &:hover {
+        color: $light-secondarydark-color;
+      }
+    }
+  }
+
+  .recorder-status-container {
+    padding: 5px 10px;
+    border-radius: 5px;
+    max-width: max-content;
+    font-weight: 500;
+    &.active {
+      color: $light-secondarydark-color;
+      background-color: $light-bg-light-color;
+    }
+    &.suspended {
+      color: #b91c1c;
+      background-color: #fda4af;
+    }
+  }
+
+  .edit-icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    padding: 7px;
+    margin: 0px 5px;
+    color: #374151;
+    background-color: #eef1f0;
+
+    &:hover {
+      color: $light-secondarydark-color;
+      background-color: $light-bg-light-color;
+    }
+  }
+
+  .view-icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    padding: 7px;
+    margin: 0px 5px;
+    margin-left: 0px;
+    color: #374151;
+    background-color: #eef1f0;
+
+    &:hover {
+      color: $light-secondarydark-color;
+      background-color: $light-bg-light-color;
+    }
+  }
+}

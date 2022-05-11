@@ -1,0 +1,74 @@
+@import '../../global_styles/main.scss';
+
+.widget {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border-radius: 10px;
+  height: 200px;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+
+    .title {
+      font-size: 15px;
+      font-weight: 500;
+      color: #374151;
+      text-transform: uppercase;
+    }
+
+    .counter {
+      font-size: 40px;
+      font-weight: 300;
+      text-overflow: ellipsis;
+    }
+
+    .link {
+      font-size: 16px;
+      color: #374151;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      margin-bottom: -5px;
+      margin-left: -5px;
+      font-weight: 500;
+      cursor: pointer;
+      width: max-content;
+      text-decoration: none;
+      border-radius: 5px;
+
+      .link-icon {
+        font-size: 15px;
+        margin-left: 5px;
+      }
+
+      &:hover {
+        color: $light-secondarydark-color;
+        background-color: $light-bg-light-color;
+      }
+    }
+
+    .icon {
+      border-radius: 5px;
+      height: 30px;
+      width: 30px;
+      align-self: flex-end;
+      padding: 2px;
+    }
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
+}
