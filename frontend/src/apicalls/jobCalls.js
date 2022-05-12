@@ -38,9 +38,9 @@ export const addNewJob = async (token, admin_name, data) => {
         response.data.payment_status
       }, MAIN CATEGORY: ${response.data.main_category}, SUB CATEGORIES: ${
         response.data.sub_categories
-      }, DESIGNER TAG: ${response.data.designer_tag}, ADDITIONAL INFO: ${
-        response.data.additional_info || 'NONE'
-      }.`,
+      }, DESIGNER TAG: ${response.data.designer_tag}, NOTE: ${
+        response.data.note
+      }, ADDITIONAL INFO: ${response.data.additional_info || 'NONE'}.`,
       job_id: response.data._id,
     });
     return {
@@ -597,6 +597,64 @@ export const updateJobStartDate = async (
     createLog(token, {
       title: `UPDATE TO JOB RECORD BY ${admin_name} - ${response.data.shorter_id}`,
       info: `${admin_name} changed job start date from "${old_start_date}" to "${new_start_date}", Job ID: ${response.data.shorter_id}.`,
+      job_id: response.data._id,
+    });
+    return {
+      ...response.data,
+      isError: false,
+    };
+  } catch (error) {
+    return {
+      ...error.response.data,
+      isError: true,
+    };
+  }
+};
+
+/* 
+ desc: UPDATE A PARTICULAR JOB'S NOTE TAG
+*/
+export const updateJobNoteTag = async (
+  token,
+  id,
+  admin_name,
+  admin_level,
+  old_note,
+  new_note
+) => {
+  try {
+    /* Check if note has changed */
+    if (old_note === new_note) {
+      let errorData = { message: 'You entered the same note' };
+      return {
+        ...errorData,
+        isError: true,
+      };
+    }
+    let setting = '';
+
+    if (admin_level === 'Recorder') {
+      setting = 'can_recorders_change_job_note';
+    }
+    if (admin_level === 'Moderator') {
+      setting = 'can_moderators_change_job_note';
+    }
+
+    const response = await axios.put(
+      `/api/job/update-job-data/?id=${id}&property=note`,
+      {
+        new_value: new_note,
+        settingToBeEnforced: setting,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    createLog(token, {
+      title: `UPDATE TO JOB RECORD BY ${admin_name} - ${response.data.shorter_id}`,
+      info: `${admin_name} changed job note from "${old_note}" to "${new_note}", Job ID: ${response.data.shorter_id}.`,
       job_id: response.data._id,
     });
     return {

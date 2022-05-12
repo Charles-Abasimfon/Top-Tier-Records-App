@@ -43,6 +43,12 @@ const jobsSchema = mongoose.Schema(
     additional_info: {
       type: String,
     },
+    note: {
+      type: String,
+      default: 'Nil',
+      required: [true, 'Missing note'],
+      /* Can be Delivered(Awaiting client response) or Corrections(Awaiting designers delivery)*/
+    },
   },
   {
     timestamps: true,

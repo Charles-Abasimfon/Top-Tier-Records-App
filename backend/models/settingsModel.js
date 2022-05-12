@@ -48,6 +48,11 @@ const settingsSchema = mongoose.Schema(
       default: true,
       required: true,
     },
+    can_recorders_change_job_note: {
+      type: Boolean,
+      default: true,
+      required: true,
+    },
     can_moderators_add_new_jobs: {
       type: Boolean,
       default: false,
@@ -70,12 +75,12 @@ const settingsSchema = mongoose.Schema(
     },
     can_moderators_change_job_main_category: {
       type: Boolean,
-      default: true,
+      default: false,
       required: true,
     },
     can_moderators_change_job_sub_categories: {
       type: Boolean,
-      default: true,
+      default: false,
       required: true,
     },
     can_moderators_change_job_start_date: {
@@ -91,6 +96,11 @@ const settingsSchema = mongoose.Schema(
     can_moderators_change_client_name: {
       type: Boolean,
       default: false,
+      required: true,
+    },
+    can_moderators_change_job_note: {
+      type: Boolean,
+      default: true,
       required: true,
     },
   },

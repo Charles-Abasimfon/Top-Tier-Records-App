@@ -64,12 +64,9 @@ const columns = [
     },
   },
   {
-    field: 'start_date',
-    headerName: 'Start Date',
-    width: 120,
-    renderCell: (params) => {
-      return <div>{params.row.start_date.slice(0, 10)}</div>;
-    },
+    field: 'note',
+    headerName: 'Note',
+    width: 300,
   },
 ];
 /* TABLE COLUMNS SETTINGS -- END */

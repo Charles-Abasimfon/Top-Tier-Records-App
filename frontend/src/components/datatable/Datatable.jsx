@@ -71,6 +71,11 @@ const columnsWithHowLate = [
       );
     },
   },
+  {
+    field: 'note',
+    headerName: 'Note',
+    width: 300,
+  },
 ];
 
 const columnsWithoutHowLate = [
@@ -132,6 +137,11 @@ const columnsWithoutHowLate = [
         </div>
       );
     },
+  },
+  {
+    field: 'note',
+    headerName: 'Note',
+    width: 300,
   },
 ];
 /* TABLE COLUMNS SETTINGS -- END */

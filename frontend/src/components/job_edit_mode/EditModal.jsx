@@ -15,6 +15,7 @@ import {
   updateJobMainCategory,
   updateJobPaymentStatus,
   updateJobStartDate,
+  updateJobNoteTag,
 } from '../../apicalls/jobCalls';
 import 'react-toastify/dist/ReactToastify.css';
 import '../modal/modal.scss';
@@ -298,6 +299,39 @@ function EditModal(props) {
       });
   };
 
+  //@Desc Handle Update Job's Note Tag
+  const handleUpdateNote = (editValue) => {
+    setIsLoading(true);
+    updateJobNoteTag(
+      admin.token,
+      jobInfo._id,
+      admin.name,
+      admin.admin_level,
+      jobInfo.note,
+      editValue
+    )
+      .then((res) => {
+        setIsLoading(false);
+        /* Check if res is an error (isError === true) */
+        if (res.isError === false) {
+          const notify = () => toast.success('Job note updated', toastObj);
+          notify();
+          handleClose();
+          getJobInfo();
+          getLogs();
+        } else {
+          setIsLoading(false);
+          const notify = () => toast.error(`ERROR: ${res.message}`, toastObj);
+          notify();
+          console.log(res.message);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     switch (type) {
       case 'change-client-name':
@@ -370,6 +404,16 @@ function EditModal(props) {
         });
         break;
 
+      case 'change-note':
+        setEditProperty('note');
+        setEditValue(jobInfo.note);
+        setModalContents({
+          title: 'Change Note',
+          text: `NOTE: You are about updating the job's note.`,
+          buttonText: 'Save',
+        });
+        break;
+
       default:
         break;
     }
@@ -403,6 +447,10 @@ function EditModal(props) {
 
       case 'change-start-date':
         handleUpdateStartDate(editValue);
+        break;
+
+      case 'change-note':
+        handleUpdateNote(editValue);
         break;
 
       default:
@@ -447,7 +495,8 @@ function EditModal(props) {
             {type !== 'change-additional-info' &&
               type !== 'change-main-category' &&
               type !== 'change-payment-status' &&
-              type !== 'change-start-date' && (
+              type !== 'change-start-date' &&
+              type !== 'change-note' && (
                 <input
                   required={true}
                   type='text'
@@ -503,6 +552,23 @@ function EditModal(props) {
                 value={editValue}
                 onChange={(event) => setEditValue(event.target.value)}
               />
+            )}
+            {type === 'change-note' && (
+              <select
+                id='note'
+                name='note'
+                required={true}
+                onChange={(event) => setEditValue(event.target.value)}
+                value={editValue}
+              >
+                <option value='Nil'>Nil</option>
+                <option value='Delivered (Awaiting Client Response)'>
+                  Delivered (Awaiting Client Response)
+                </option>
+                <option value='Corrections (Awaiting Designers Delivery)'>
+                  Corrections (Awaiting Designers Delivery)
+                </option>
+              </select>
             )}
             <div className='btn-container'>
               <button

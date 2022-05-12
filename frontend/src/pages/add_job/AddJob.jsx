@@ -40,6 +40,7 @@ function AddJob() {
     designer_tag: '',
     start_date: today,
     additional_info: '',
+    note: 'Nil',
   });
 
   const handleFormInputChange = (event) => {
@@ -90,6 +91,7 @@ function AddJob() {
             additional_info: '',
             payment_status: formInputs.payment_status,
             main_category: formInputs.main_category,
+            note: 'Nil',
           });
         } else {
           console.log(res.message);
@@ -233,6 +235,24 @@ function AddJob() {
               value={formInputs.start_date}
               onChange={(event) => handleFormInputChange(event)}
             />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='note'>Note</label>
+            <select
+              id='note'
+              name='note'
+              required
+              onChange={(event) => handleFormInputChange(event)}
+              value={formInputs.note}
+            >
+              <option value='Nil'>Nil</option>
+              <option value='Delivered (Awaiting Client Response)'>
+                Delivered (Awaiting Client Response)
+              </option>
+              <option value='Corrections (Awaiting Designers Delivery)'>
+                Corrections (Awaiting Designers Delivery)
+              </option>
+            </select>
           </div>
           <div className='form-group textarea'>
             <label htmlFor='additional_info'>Any Additional Info</label>

@@ -44,7 +44,9 @@ function JobEditMode({ jobInfo, getJobInfo, getLogs }) {
         case 'change-additional-info':
           return settings.can_recorders_change_job_additional_info;
           break;
-
+        case 'change-note':
+          return settings.can_recorders_change_job_note;
+          break;
         default:
           return false;
           break;
@@ -72,6 +74,9 @@ function JobEditMode({ jobInfo, getJobInfo, getLogs }) {
           break;
         case 'change-additional-info':
           return settings.can_moderators_change_job_additional_info;
+          break;
+        case 'change-note':
+          return settings.can_moderators_change_job_note;
           break;
         default:
           return false;
@@ -174,6 +179,18 @@ function JobEditMode({ jobInfo, getJobInfo, getLogs }) {
                       onClick={() =>
                         toggleModal('reassign-job-to-another-designer')
                       }
+                    />
+                  )}
+                </span>
+              </div>
+              <div className='detail-item'>
+                <span className='item-key'>Note:</span>
+                <span className='item-value'>
+                  {jobInfo.note || 'Nil'}
+                  {canPerformAction('change-note') && (
+                    <EditSharpIcon
+                      className='edit-icon'
+                      onClick={() => toggleModal('change-note')}
                     />
                   )}
                 </span>

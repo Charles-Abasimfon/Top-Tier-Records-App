@@ -219,6 +219,12 @@ function SingleJob() {
                       </span>
                     </div>
                     <div className='detail-item'>
+                      <span className='item-key'>Note:</span>
+                      <span className='item-value'>
+                        {jobInfo.note || 'Nil'}
+                      </span>
+                    </div>
+                    <div className='detail-item'>
                       <span className='item-key'>Any Additional Info:</span>
                       <span className='item-value'>
                         {jobInfo.additional_info || 'NONE'}
