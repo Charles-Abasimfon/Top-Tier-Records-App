@@ -9,6 +9,7 @@ const {
   getAllLateJobs,
   getAllCompletedJobs,
   searchJobs,
+  deleteJobById,
 } = require('../controllers/jobController');
 // Importing protect middleware
 const { protect } = require('../middleware/authMiddleware');
@@ -23,5 +24,6 @@ router.get('/get-all-pending-jobs', protect, getAllPendingJobs);
 router.get('/get-all-late-jobs', protect, getAllLateJobs);
 router.get('/get-all-completed-jobs', protect, getAllCompletedJobs);
 router.get('/search-jobs', protect, searchJobs);
+router.delete('/delete-job', protect, enforceSettings, deleteJobById);
 
 module.exports = router;

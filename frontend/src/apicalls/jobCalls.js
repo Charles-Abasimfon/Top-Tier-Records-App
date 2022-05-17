@@ -668,3 +668,24 @@ export const updateJobNoteTag = async (
     };
   }
 };
+
+/* 
+ desc: DELETE A JOB
+*/
+export const deleteJobById = async (token, id, shorterId, admin_name) => {
+  try {
+    const response = await axios.delete(`/api/job/delete-job/?id=${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    createLog(token, {
+      title: `DELETED JOB RECORD BY ${admin_name} - ${shorterId}`,
+      info: `${admin_name} deleted a job's record, Job ID: ${shorterId}, Long ID: ${id}.`,
+      job_id: id,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error.response.data.message);
+  }
+};

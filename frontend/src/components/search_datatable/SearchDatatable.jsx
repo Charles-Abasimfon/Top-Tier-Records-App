@@ -10,7 +10,7 @@ const columns = [
   {
     field: 'client_name',
     headerName: 'Client Name',
-    width: 140,
+    width: 160,
     renderCell: (params) => {
       return (
         <div className='name'>
@@ -22,7 +22,7 @@ const columns = [
   { field: 'payment_status', headerName: 'Payment Status', width: 140 },
   { field: 'main_category', headerName: 'Main Category', width: 180 },
   { field: 'sub_categories', headerName: 'Sub Categories', width: 210 },
-  { field: 'designer_tag', headerName: 'Designer Tag', width: 150 },
+  { field: 'designer_tag', headerName: 'Designer Tag', width: 140 },
   {
     field: 'status',
     headerName: 'Status',

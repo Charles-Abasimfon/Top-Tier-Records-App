@@ -263,6 +263,20 @@ function Settings() {
                         Can recorders change client name in jobs.
                       </label>
                     </div>
+                    <div className='checkbox-group'>
+                      <div className='checkbox-container'>
+                        <input
+                          type='checkbox'
+                          onChange={(event) => handleFormInputChange(event)}
+                          id='can_recorders_change_job_note'
+                          name='can_recorders_change_job_note'
+                          checked={settings.can_recorders_change_job_note}
+                        />
+                      </div>
+                      <label for='can_recorders_change_job_note'>
+                        Can recorders change job note.
+                      </label>
+                    </div>
                     <h3 className='item-subtitle'>Moderators:</h3>
                     <div className='checkbox-group'>
                       <div className='checkbox-container'>
@@ -402,6 +416,20 @@ function Settings() {
                       </div>
                       <label for='can_moderators_change_client_name'>
                         Can moderators change client name in jobs.
+                      </label>
+                    </div>
+                    <div className='checkbox-group'>
+                      <div className='checkbox-container'>
+                        <input
+                          type='checkbox'
+                          onChange={(event) => handleFormInputChange(event)}
+                          id='can_moderators_change_job_note'
+                          name='can_moderators_change_job_note'
+                          checked={settings.can_moderators_change_job_note}
+                        />
+                      </div>
+                      <label for='can_moderators_change_job_note'>
+                        Can moderators change job note.
                       </label>
                     </div>
                     {errorDetails.isError && (

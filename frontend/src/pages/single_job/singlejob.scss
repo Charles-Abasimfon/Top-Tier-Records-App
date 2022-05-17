@@ -187,8 +187,10 @@
       width: 100%;
       max-width: 800px;
       padding: 20px;
+      padding-bottom: 30px;
       @include tablet {
         margin-bottom: 20px;
+        padding-bottom: 50px;
       }
 
       &:hover {
@@ -214,6 +216,21 @@
           .detail-item {
             margin-bottom: 10px;
             font-size: 14px;
+
+            .delete-job {
+              color: #ef4444;
+              cursor: pointer;
+              font-size: 14px;
+              font-weight: 400;
+              float: right;
+              margin-top: 10px;
+              @include mobile {
+                float: left;
+              }
+              &:hover {
+                text-decoration: underline;
+              }
+            }
 
             .item-key {
               font-weight: 500;

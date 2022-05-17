@@ -314,6 +314,31 @@ const searchJobs = asyncHandler(async (req, res) => {
     });
 });
 
+//@desc Delete A Job By Id (id is passed as a parameter)
+//@route DELETE /api/job/delete-job/?id=:id
+//@access Private
+const deleteJobById = asyncHandler(async (req, res) => {
+  const jobId = req.query.id;
+  if (!jobId) {
+    res.status(400);
+    throw new Error('Missing id query');
+  }
+  //Check for existing job
+  const job = await Job.findById(jobId);
+  if (!job) {
+    res.status(400);
+    throw new Error('A Job with this id does not exist');
+  }
+  //Delete job
+  const deletedJob = await Job.findByIdAndDelete(jobId);
+  if (deletedJob) {
+    res.status(204).json(deletedJob);
+  } else {
+    res.status(400);
+    throw new Error('Job could not be deleted');
+  }
+});
+
 module.exports = {
   addJob,
   getAllJobs,
@@ -323,4 +348,5 @@ module.exports = {
   getAllLateJobs,
   getAllCompletedJobs,
   searchJobs,
+  deleteJobById,
 };

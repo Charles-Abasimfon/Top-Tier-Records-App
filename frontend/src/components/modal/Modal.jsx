@@ -9,7 +9,10 @@ import {
   updateRecorderOrModeratorStatusToActiveOrInactiveById,
   deleteRecorderOrModeratorById,
 } from '../../apicalls/adminCalls';
-import { updateJobStatusToCompletedById } from '../../apicalls/jobCalls';
+import {
+  updateJobStatusToCompletedById,
+  deleteJobById,
+} from '../../apicalls/jobCalls';
 import { AuthContext } from '../../context/authContext/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -45,6 +48,7 @@ function ModalComponent(props) {
     adminToken,
     setAdminInfo,
     jobId,
+    shorterId,
     getJobInfo,
     getLogs,
   } = props;
@@ -79,6 +83,42 @@ function ModalComponent(props) {
         navigate('/recorders-moderators/all', { replace: true });
       })
       .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //@Desc Handle Delete Job
+  const handleDeleteJob = () => {
+    deleteJobById(adminToken, jobId, shorterId, admin.name)
+      .then((res) => {
+        const notify = () =>
+          toast.success('Job deleted successfully.', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+          });
+        notify();
+        handleClose();
+        navigate(-1);
+      })
+      .catch((err) => {
+        const notify = () =>
+          toast.error(`ERROR: Failed to delete.`, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+          });
+        notify();
         console.log(err);
       });
   };
@@ -169,6 +209,16 @@ function ModalComponent(props) {
           text: `Are you sure you want to change this job's status to Completed?`,
           buttonText: 'Change Status',
           buttonAction: () => handleMarkJobAsCompleted(),
+        });
+        break;
+
+      case 'delete-job':
+        setModalContents({
+          title: 'Delete Job',
+          text: 'Are you sure you want to delete this job?',
+          buttonText: 'Delete',
+          buttonAction: () => handleDeleteJob(),
+          buttonClass: 'delete-button',
         });
         break;
 

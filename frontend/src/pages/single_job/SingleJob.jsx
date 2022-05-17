@@ -35,7 +35,6 @@ function SingleJob() {
     getLogsForJob(admin.token, jobId)
       .then((res) => {
         setLogs(res);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -145,15 +144,18 @@ function SingleJob() {
             </div>
           </div>
 
-          <Modal
-            displayModal={displayModal}
-            setDisplayModal={setDisplayModal}
-            type={modalType}
-            jobId={jobInfo._id}
-            adminToken={admin.token}
-            getJobInfo={getJobInfo}
-            getLogs={getLogs}
-          />
+          {jobInfo && (
+            <Modal
+              displayModal={displayModal}
+              setDisplayModal={setDisplayModal}
+              type={modalType}
+              jobId={jobInfo._id}
+              shorterId={jobInfo.shorter_id}
+              adminToken={admin.token}
+              getJobInfo={getJobInfo}
+              getLogs={getLogs}
+            />
+          )}
 
           <div className='below-top'>
             {editMode ? (
@@ -230,6 +232,16 @@ function SingleJob() {
                         {jobInfo.additional_info || 'NONE'}
                       </span>
                     </div>
+                    {admin.admin_level === 'Administrator' && (
+                      <div className='detail-item'>
+                        <span
+                          className='delete-job'
+                          onClick={() => toggleModal('delete-job')}
+                        >
+                          DELETE THIS JOB
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
