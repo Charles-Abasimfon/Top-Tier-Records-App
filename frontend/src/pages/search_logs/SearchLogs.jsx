@@ -70,7 +70,7 @@ function Logs() {
         <div className='search'>
           <input
             type='search'
-            placeholder='Search Logs by date, time, job id, title'
+            placeholder='Search Logs by date, time, job id, title, info'
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
             onKeyPress={handleEnterKeyPress}

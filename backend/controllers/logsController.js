@@ -92,6 +92,7 @@ const searchLogs = asyncHandler(async (req, res) => {
       { time: { $in: searchQueryRegex } },
       { job_id: { $in: searchQueryRegex } },
       { title: { $in: searchQueryRegex } },
+      { info: { $in: searchQueryRegex } },
     ],
   })
     .sort({ _id: -1 })
