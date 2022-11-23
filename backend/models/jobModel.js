@@ -49,6 +49,10 @@ const jobsSchema = mongoose.Schema(
       required: [true, 'Missing note'],
       /* Can be Delivered(Awaiting client response) or Corrections(Awaiting designers delivery)*/
     },
+    reminded_status: {
+      type: String,
+      default: 'Not Reminded',
+    },
   },
   {
     timestamps: true,

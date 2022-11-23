@@ -689,3 +689,63 @@ export const deleteJobById = async (token, id, shorterId, admin_name) => {
     console.log(error.response.data.message);
   }
 };
+
+/* 
+ desc: UPDATE A PARTICULAR JOB'S REMINDED STATUS
+*/
+export const updateJobRemindedStatus = async (
+  token,
+  id,
+  admin_name,
+  admin_level,
+  old_reminded_status,
+  new_reminded_status
+) => {
+  console.log('old_reminded_status', old_reminded_status);
+  console.log('new_reminded_status', new_reminded_status);
+  try {
+    /* Check if reminded status has changed */
+    if (old_reminded_status === new_reminded_status) {
+      let errorData = { message: 'You selected the same reminded status' };
+      return {
+        ...errorData,
+        isError: true,
+      };
+    }
+
+    let setting = '';
+    if (admin_level === 'Recorder') {
+      setting = 'can_recorders_change_job_reminded_status';
+    }
+    if (admin_level === 'Moderator') {
+      setting = 'can_moderators_change_job_reminded_status';
+    }
+
+    const response = await axios.put(
+      `/api/job/update-job-data/?id=${id}&property=reminded_status`,
+      {
+        new_value: new_reminded_status,
+        settingToBeEnforced: setting,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    createLog(token, {
+      title: `UPDATE TO JOB RECORD BY ${admin_name} - ${response.data.shorter_id}`,
+      info: `${admin_name} changed job reminded_status from ${old_reminded_status} to ${new_reminded_status}, Job ID: ${response.data.shorter_id}.`,
+      job_id: response.data._id,
+    });
+    return {
+      ...response.data,
+      isError: false,
+    };
+  } catch (error) {
+    return {
+      ...error.response.data,
+      isError: true,
+    };
+  }
+};

@@ -13,7 +13,7 @@ function Logs() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const handleChange = (event, value) => {
-    setPage(value);
+    setPage(Math.ceil(value));
     setLogsToShow(logs.slice((value - 1) * 100, value * 100));
   };
 
@@ -21,7 +21,7 @@ function Logs() {
     getLogs(admin.token)
       .then((res) => {
         setLogs(res);
-        setTotalPages(res.length / 100);
+        setTotalPages(Math.ceil(res.length / 100));
         setLogsToShow(res.slice(0, 100));
       })
       .catch((err) => {

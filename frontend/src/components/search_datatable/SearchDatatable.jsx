@@ -41,6 +41,14 @@ const columns = [
     },
   },
   {
+    field: 'reminded_status',
+    headerName: 'Reminded Status',
+    width: 160,
+    renderCell: (params) => {
+      return <div>{params.row.reminded_status || 'Not Reminded'}</div>;
+    },
+  },
+  {
     field: 'how_late',
     headerName: 'How Late',
     width: 150,

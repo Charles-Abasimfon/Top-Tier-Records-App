@@ -231,7 +231,7 @@ const getAllCompletedJobs = asyncHandler(async (req, res) => {
     });
 });
 
-//@desc Search For Jobs based on client_name, payment_status, main_category, sub_categories, designer_tag, is_completed_status, shorter_id
+//@desc Search For Jobs based on client_name, payment_status, main_category, sub_categories, designer_tag, is_completed_status, shorter_id, reminded_status
 //@route GET /api/job/search-jobs?search=:search
 //@access Private
 const searchJobs = asyncHandler(async (req, res) => {
@@ -284,6 +284,7 @@ const searchJobs = asyncHandler(async (req, res) => {
       { payment_status: { $in: searchQueryRegex } },
       { shorter_id: { $in: searchQueryRegex } },
       { start_date: { $in: searchQueryRegex } },
+      { reminded_status: { $in: searchQueryRegex } },
       { is_completed_status: isCompleted },
     ],
   })

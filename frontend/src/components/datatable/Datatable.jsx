@@ -49,6 +49,14 @@ const columnsWithHowLate = [
     },
   },
   {
+    field: 'reminded_status',
+    headerName: 'Reminded Status',
+    width: 160,
+    renderCell: (params) => {
+      return <div>{params.row.reminded_status || 'Not Reminded'}</div>;
+    },
+  },
+  {
     field: 'how_late',
     headerName: 'How Late',
     width: 150,
@@ -110,6 +118,14 @@ const columnsWithoutHowLate = [
           {params.row.status}
         </div>
       );
+    },
+  },
+  {
+    field: 'reminded_status',
+    headerName: 'Reminded Status',
+    width: 160,
+    renderCell: (params) => {
+      return <div>{params.row.reminded_status || 'Not Reminded'}</div>;
     },
   },
   {

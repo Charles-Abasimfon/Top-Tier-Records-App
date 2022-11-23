@@ -47,6 +47,8 @@ function JobEditMode({ jobInfo, getJobInfo, getLogs }) {
         case 'change-note':
           return settings.can_recorders_change_job_note;
           break;
+        case 'change-reminded-status':
+          return settings.can_recorders_change_job_reminded_status;
         default:
           return false;
           break;
@@ -78,6 +80,8 @@ function JobEditMode({ jobInfo, getJobInfo, getLogs }) {
         case 'change-note':
           return settings.can_moderators_change_job_note;
           break;
+        case 'change-reminded-status':
+          return settings.can_moderators_change_job_reminded_status;
         default:
           return false;
           break;
@@ -159,6 +163,19 @@ function JobEditMode({ jobInfo, getJobInfo, getLogs }) {
                 ${jobInfo.status === 'Completed' && 'completed'}`}
                 >
                   <span>{jobInfo.status}</span>
+                </span>
+              </div>
+              <div className='detail-item'>
+                <span className='item-key'>Reminded Status:</span>
+                <span className='item-value payment'>
+                  {jobInfo.reminded_status || 'Not Reminded'}
+                  {canPerformAction('change-reminded-status') &&
+                    jobInfo.status === 'Completed' && (
+                      <EditSharpIcon
+                        className='edit-icon'
+                        onClick={() => toggleModal('change-reminded-status')}
+                      />
+                    )}
                 </span>
               </div>
               {jobInfo.status !== 'Completed' &&

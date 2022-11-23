@@ -206,6 +206,12 @@ function SingleJob() {
                         <span>{jobInfo.status}</span>
                       </span>
                     </div>
+                    <div className='detail-item'>
+                      <span className='item-key'>Reminded Status:</span>
+                      <span className='item-value payment'>
+                        <span>{jobInfo.reminded_status || 'Not Reminded'}</span>
+                      </span>
+                    </div>
                     {jobInfo.status !== 'Completed' &&
                       jobInfo.main_category !== 'Website Development' && (
                         <div className='detail-item'>

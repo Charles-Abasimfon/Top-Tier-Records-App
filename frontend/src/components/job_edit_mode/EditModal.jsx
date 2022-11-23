@@ -16,6 +16,7 @@ import {
   updateJobPaymentStatus,
   updateJobStartDate,
   updateJobNoteTag,
+  updateJobRemindedStatus,
 } from '../../apicalls/jobCalls';
 import 'react-toastify/dist/ReactToastify.css';
 import '../modal/modal.scss';
@@ -332,6 +333,40 @@ function EditModal(props) {
       });
   };
 
+  //@Desc Handle Update Job's Reminded Status
+  const handleUpdateJobRemindedStatus = (editValue) => {
+    setIsLoading(true);
+    updateJobRemindedStatus(
+      admin.token,
+      jobInfo._id,
+      admin.name,
+      admin.admin_level,
+      jobInfo.reminded_status || 'Not Reminded',
+      editValue
+    )
+      .then((res) => {
+        setIsLoading(false);
+        /* Check if res is an error (isError === true) */
+        if (res.isError === false) {
+          const notify = () =>
+            toast.success('Job reminded status updated', toastObj);
+          notify();
+          handleClose();
+          getJobInfo();
+          getLogs();
+        } else {
+          setIsLoading(false);
+          const notify = () => toast.error(`ERROR: ${res.message}`, toastObj);
+          notify();
+          console.log(res.message);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     switch (type) {
       case 'change-client-name':
@@ -414,6 +449,16 @@ function EditModal(props) {
         });
         break;
 
+      case 'change-reminded-status':
+        setEditProperty('reminded_status');
+        setEditValue(jobInfo.reminded_status);
+        setModalContents({
+          title: 'Change Reminded Status',
+          text: `NOTE: You are about updating the job's reminded status.`,
+          buttonText: 'Save',
+        });
+        break;
+
       default:
         break;
     }
@@ -451,6 +496,10 @@ function EditModal(props) {
 
       case 'change-note':
         handleUpdateNote(editValue);
+        break;
+
+      case 'change-reminded-status':
+        handleUpdateJobRemindedStatus(editValue);
         break;
 
       default:
@@ -496,7 +545,8 @@ function EditModal(props) {
               type !== 'change-main-category' &&
               type !== 'change-payment-status' &&
               type !== 'change-start-date' &&
-              type !== 'change-note' && (
+              type !== 'change-note' &&
+              type !== 'change-reminded-status' && (
                 <input
                   required={true}
                   type='text'
@@ -568,6 +618,19 @@ function EditModal(props) {
                 <option value='Corrections (Awaiting Designers Delivery)'>
                   Corrections (Awaiting Designers Delivery)
                 </option>
+              </select>
+            )}
+            {type === 'change-reminded-status' && (
+              <select
+                id={editProperty}
+                name={editProperty}
+                required
+                onChange={(event) => setEditValue(event.target.value)}
+                value={editValue}
+              >
+                <option value='Not Reminded'>Not Reminded</option>
+                <option value='Reminded x1'>Reminded x1</option>
+                <option value='Reminded x2'>Reminded x2</option>
               </select>
             )}
             <div className='btn-container'>

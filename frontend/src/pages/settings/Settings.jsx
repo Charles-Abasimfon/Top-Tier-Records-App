@@ -277,6 +277,22 @@ function Settings() {
                         Can recorders change job note.
                       </label>
                     </div>
+                    <div className='checkbox-group'>
+                      <div className='checkbox-container'>
+                        <input
+                          type='checkbox'
+                          onChange={(event) => handleFormInputChange(event)}
+                          id='can_recorders_change_job_reminded_status'
+                          name='can_recorders_change_job_reminded_status'
+                          checked={
+                            settings.can_recorders_change_job_reminded_status
+                          }
+                        />
+                      </div>
+                      <label for='can_recorders_change_job_reminded_status'>
+                        Can recorders change job reminded status.
+                      </label>
+                    </div>
                     <h3 className='item-subtitle'>Moderators:</h3>
                     <div className='checkbox-group'>
                       <div className='checkbox-container'>
@@ -430,6 +446,22 @@ function Settings() {
                       </div>
                       <label for='can_moderators_change_job_note'>
                         Can moderators change job note.
+                      </label>
+                    </div>
+                    <div className='checkbox-group'>
+                      <div className='checkbox-container'>
+                        <input
+                          type='checkbox'
+                          onChange={(event) => handleFormInputChange(event)}
+                          id='can_moderators_change_job_reminded_status'
+                          name='can_moderators_change_job_reminded_status'
+                          checked={
+                            settings.can_moderators_change_job_reminded_status
+                          }
+                        />
+                      </div>
+                      <label for='can_moderators_change_job_reminded_status'>
+                        Can moderators change job reminded status.
                       </label>
                     </div>
                     {errorDetails.isError && (
